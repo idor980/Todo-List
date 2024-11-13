@@ -1,10 +1,10 @@
 import { Text, View, StyleSheet, TextInput } from "react-native";
 import { useState } from "react";
+import Button from "@/components/Button";
 
 export default function AddScreen() {
   const [title, onChangeTitle] = useState('Title placeholder');
   const [description, onChangeDescription] = useState('Description placeholder');
-  const [dueDate, onChangeDueDate] = useState('Due date placeholder');
 
   return (
     <View style={styles.container}>
@@ -32,17 +32,10 @@ export default function AddScreen() {
           multiline
         />
       </View>
-
-      <View style={styles.inputContainer}>
-        <Text style={styles.label}>Due Date</Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeDueDate}
-          value={dueDate}
-          placeholder="Enter due date"
-          placeholderTextColor="#888"
-        />
-      </View>
+      <View style={styles.footerContainer}>
+          <Button theme="confirm" label="Cancel" onPress={() => alert('Confirm')} />
+          <Button theme="cancel" label="Confirm" onPress={() => alert('Cancel')} />
+        </View>
     </View>
   );
 }
@@ -78,5 +71,9 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 16,
     color: "#333",
+  },
+  footerContainer: {
+    flex: 1 / 3,
+    alignItems: 'center',
   },
 });
