@@ -1,15 +1,23 @@
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 
-export default function Index() {
+export default function PendingScreen() {
   return (
     <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Todo List App</Text>
+      style={styles.container}>
+      <Text style={styles.text}>Pending screen</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#cdcbd4",
+    },
+    text: {
+        fontSize: 24,
+        color: "#332c54",
+    },
+});

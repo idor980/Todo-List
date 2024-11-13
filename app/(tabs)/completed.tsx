@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet } from "react-native";
 
-export default function AboutScreen() {
+export default function CompletedScreen() {
   return (
     <View
       style={styles.container}>
@@ -10,13 +10,14 @@ export default function AboutScreen() {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#25292e",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    text: {
-        color: '#fff',
-    },
+  container: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "#cdcbd4",
+  },
+  text: {
+      fontSize: 24,
+      color: "#332c54",
+  },
 });

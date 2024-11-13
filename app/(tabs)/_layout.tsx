@@ -5,32 +5,50 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{ 
-        tabBarActiveTintColor: '#ffd33d',
+        tabBarActiveTintColor: '#cdcbd4',
         headerStyle: {
-          backgroundColor: '#25292e',
+          backgroundColor: '#1c143f',
         },
         headerShadowVisible: false,
-        headerTintColor: '#fff',
+        headerTintColor: '#cdcbd4',
         tabBarStyle: {
-          backgroundColor: '#25292e',
+          backgroundColor: '#1c143f',
         }
       }}
     >
-        <Tabs.Screen 
+       <Tabs.Screen 
             name="index" 
             options={{ 
-                title: 'Home', 
+                title: 'Pending', 
                 tabBarIcon: ({color, focused}) => (
-                    <Ionicons name={focused ? 'home-sharp' : 'home-outline'} color={color} size={24} />
+                    <Ionicons name={focused ? 'time-sharp' : 'time-outline'} color={color} size={24} />
+                )
+            }}
+        />
+        <Tabs.Screen 
+            name="completed" 
+            options={{ 
+                title: 'Completed', 
+                tabBarIcon: ({color, focused}) => (
+                    <Ionicons name={focused ? 'checkmark-circle-sharp' : 'checkmark-circle-outline'} color={color} size={24} />
+                )
+            }}
+        />
+        <Tabs.Screen 
+            name="overdue" 
+            options={{ 
+                title: 'Overdue', 
+                tabBarIcon: ({color, focused}) => (
+                    <Ionicons name={focused ? 'alert-circle-sharp' : 'alert-circle-outline'} color={color} size={24} />
                 )
             }}
         />
         <Tabs.Screen 
             name="add" 
             options={{ 
-                title: 'Add', 
+                title: 'Add new task', 
                 tabBarIcon: ({color, focused}) => (
-                    <Ionicons name={focused ? 'add-circle-sharp' : 'add-circle-outline'} color={color} size={24} />
+                    <Ionicons name={focused ? 'add-circle' : 'add-circle-outline'} color={color} size={24} />
                 )
             }}
         />

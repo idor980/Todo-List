@@ -6,7 +6,7 @@ import { useEffect } from "react";
 export default function RootLayout() {
   useEffect(() => {
     setTimeout(() => {
-      setStatusBarStyle("dark");
+      setStatusBarStyle("light");
     }, 0);
   }, []);
 
