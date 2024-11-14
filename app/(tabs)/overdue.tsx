@@ -4,7 +4,7 @@ export default function OverdueScreen() {
   return (
     <View
       style={styles.container}>
-      <Text style={styles.text}>Overdue screen</Text>
+      <Text style={styles.text}>Overdue screen </Text>
     </View>
   );
 }

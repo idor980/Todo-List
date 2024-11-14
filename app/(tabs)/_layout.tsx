@@ -17,7 +17,7 @@ export default function TabLayout() {
       }}
     >
        <Tabs.Screen 
-            name="index" 
+            name="pending" 
             options={{ 
                 title: 'Pending', 
                 tabBarIcon: ({color, focused}) => (

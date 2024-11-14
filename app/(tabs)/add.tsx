@@ -2,17 +2,40 @@ import { Text, View, StyleSheet, TextInput } from "react-native";
 import { useState } from "react";
 import Button from "@/components/Button";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { addTask } from "@/database/db"; // Import addTask function
+import { useRouter } from "expo-router";
+
 
 export default function AddScreen() {
   const [title, onChangeTitle] = useState('');
   const [description, onChangeDescription] = useState('');
+  const router = useRouter();
 
-  function handelConfirm() {
-    alert('Confirm');
+  // Clear input fields
+  function clearForm() {
+      onChangeTitle("");
+      onChangeDescription("");
   }
 
-  function handelCancel() {
+  async function handleConfirm() {
+    if (title) {
+      try {
+        await addTask(title, description); 
+        alert("Task added successfully!");
+        clearForm();
+        router.replace("/(tabs)/pending");
+
+      } catch (error) {
+        alert("Error adding task");
+      }
+    } else {
+      alert("Please enter title");
+    }
+  }
+
+  function handleCancel() {
     alert('Cancel');
+    clearForm();
   }
 
   return (
@@ -41,8 +64,8 @@ export default function AddScreen() {
         />
       </View>
       <View style={styles.footerContainer}>
-          <Button theme="cancel" label="Cancel" onPress={handelCancel} />
-          <Button theme="confirm" label="Confirm" onPress={handelConfirm} />
+          <Button theme="cancel" label="Cancel" onPress={handleCancel} />
+          <Button theme="confirm" label="Confirm" onPress={handleConfirm} />
         </View>
     </SafeAreaView>
   );

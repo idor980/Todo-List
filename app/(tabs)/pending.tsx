@@ -1,43 +1,50 @@
 import { Text, View, StyleSheet, FlatList, Pressable } from "react-native";
-import { getTasksByStatus, deleteTask } from "@/database/db"; 
+import { getTasksByStatus, deleteTask, updateTask } from "@/database/db"; 
 import { useState, useEffect } from "react";
+import CompletedButton from "@/components/CompletedButton";
 import DeleteButton from "@/components/DeleteTaskButton";
 
-export default function CompletedScreen() {
+export default function PendingScreen() {
   const [tasks, setTasks] = useState<any[]>([]);
 
   useEffect(() => {
-    const fetchCompletedTasks = async () => {
+    const fetchPendingTasks = async () => {
       try {
-        const completedTasks = await getTasksByStatus("completed"); 
-        setTasks(completedTasks);
+        const pendingTasks = await getTasksByStatus("pending"); 
+        setTasks(pendingTasks);
       } catch (error) {
         alert("Error loading tasks");
       }
     };
-    fetchCompletedTasks();
+    fetchPendingTasks();
   }, [tasks]);
 
   const renderItem = ({ item }: { item: any }) => (
     <Pressable onPress={() => console.log(item.id)}>
       <View style={{flexDirection: 'row',  alignItems: 'center',  marginBottom: 20}}>
+        <CompletedButton onPress={() => {
+            updateTask(item.id)
+            console.log(`moved task ${item.id} to completed`)
+          }
+        }/>
         <View style={styles.taskContainer}>
           <Text style={styles.taskTitle}>{item.title}</Text>
           <Text style={styles.taskDescription}>{item.description}</Text>
         </View>
         <DeleteButton onPress={() => {
-            console.log(`delete task ${item.id}`)
             deleteTask(item.id)
+            console.log(`deleted task ${item.id}`)
           }
         }/>
       </View>
     </Pressable>
   );
+
   if (tasks.length === 0){
     return (
       <View
         style={styles.container}>
-        <Text style={styles.text}>No completed tasks </Text>
+        <Text style={styles.text}>No pending tasks </Text>
       </View>
     );
   } else {
