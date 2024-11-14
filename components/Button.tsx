@@ -12,7 +12,7 @@ export default function Button({ label, theme, onPress }: Props) {
         return (
             <View style={[styles.buttonContainer, {backgroundColor: '#ff0000'}]}>  
                   <Pressable style={styles.button } onPress={onPress}>
-                    <FontAwesome name="plus-square" size={18} color="#fff" style={styles.buttonIcon} />
+                    <FontAwesome name="minus-square" size={18} color="#fff" style={styles.buttonIcon} />
                     <Text style={styles.buttonLabel}>{label}</Text>
                 </Pressable>
             </View>
@@ -21,7 +21,7 @@ export default function Button({ label, theme, onPress }: Props) {
     return (
         <View style={[styles.buttonContainer, {backgroundColor: '#008000'}]}>  
         <Pressable style={styles.button } onPress={onPress}>
-            <FontAwesome name="minus-square" size={18} color="#fff" style={styles.buttonIcon} />
+            <FontAwesome name="plus-square" size={18} color="#fff" style={styles.buttonIcon} />
             <Text style={styles.buttonLabel}>{label}</Text>
         </Pressable>
     </View>

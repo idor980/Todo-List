@@ -26,7 +26,7 @@ export default function AddScreen() {
           onChangeText={onChangeTitle}
           value={title}
           placeholder="Enter title"
-          placeholderTextColor="#888"
+          placeholderTextColor="#D3D3D3"
         />
       </View>
 
@@ -37,8 +37,7 @@ export default function AddScreen() {
           onChangeText={onChangeDescription}
           value={description}
           placeholder="Enter description"
-          placeholderTextColor="#888"
-          multiline
+          placeholderTextColor="#D3D3D3"
         />
       </View>
       <View style={styles.footerContainer}>
@@ -82,7 +81,6 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   footerContainer: {
-    flex: 1 / 3,
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
