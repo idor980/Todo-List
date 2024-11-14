@@ -1,13 +1,22 @@
 import { Text, View, StyleSheet, TextInput } from "react-native";
 import { useState } from "react";
 import Button from "@/components/Button";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function AddScreen() {
-  const [title, onChangeTitle] = useState('Title placeholder');
-  const [description, onChangeDescription] = useState('Description placeholder');
+  const [title, onChangeTitle] = useState('');
+  const [description, onChangeDescription] = useState('');
+
+  function handelConfirm() {
+    alert('Confirm');
+  }
+
+  function handelCancel() {
+    alert('Cancel');
+  }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.header}>Enter your task details</Text>
       
       <View style={styles.inputContainer}>
@@ -33,10 +42,10 @@ export default function AddScreen() {
         />
       </View>
       <View style={styles.footerContainer}>
-          <Button theme="confirm" label="Cancel" onPress={() => alert('Confirm')} />
-          <Button theme="cancel" label="Confirm" onPress={() => alert('Cancel')} />
+          <Button theme="cancel" label="Cancel" onPress={handelCancel} />
+          <Button theme="confirm" label="Confirm" onPress={handelConfirm} />
         </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -75,5 +84,7 @@ const styles = StyleSheet.create({
   footerContainer: {
     flex: 1 / 3,
     alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
   },
 });

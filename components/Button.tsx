@@ -8,27 +8,21 @@ type Props = {
 };
 
 export default function Button({ label, theme, onPress }: Props) {
-    if (theme === 'confirm') {
+    if (theme === 'cancel') {
         return (
-            <View 
-                style={[styles.buttonContainer,
-                { borderWidth: 4, borderColor: '#ffd33d', borderRadius: 18 },
-                ]}> 
-                <Pressable style={[styles.button, {backgroundColor: '#fff'}]} onPress={onPress}>
-                    <FontAwesome name="plus-square" size={18} color="#25292e" style={styles.buttonIcon} />
-                    <Text style={[styles.buttonLabel, {color: '#25292e'}]}>{label}</Text>
+            <View style={[styles.buttonContainer, {backgroundColor: '#ff0000'}]}>  
+                  <Pressable style={styles.button } onPress={onPress}>
+                    <FontAwesome name="plus-square" size={18} color="#fff" style={styles.buttonIcon} />
+                    <Text style={styles.buttonLabel}>{label}</Text>
                 </Pressable>
             </View>
         );
     }
     return (
-        <View 
-        style={[styles.buttonContainer,
-        { borderWidth: 4, borderColor: '#ffd33d', borderRadius: 18 },
-        ]}> 
-        <Pressable style={[styles.button, {backgroundColor: '#fff'}]} onPress={onPress}>
-            <FontAwesome name="minus-square" size={18} color="#25292e" style={styles.buttonIcon} />
-            <Text style={[styles.buttonLabel, {color: '#25292e'}]}>{label}</Text>
+        <View style={[styles.buttonContainer, {backgroundColor: '#008000'}]}>  
+        <Pressable style={styles.button } onPress={onPress}>
+            <FontAwesome name="minus-square" size={18} color="#fff" style={styles.buttonIcon} />
+            <Text style={styles.buttonLabel}>{label}</Text>
         </Pressable>
     </View>
       );
@@ -37,13 +31,11 @@ export default function Button({ label, theme, onPress }: Props) {
 
 const styles = StyleSheet.create({
     buttonContainer: {
-      width: 320,
+      width: 150,
       height: 68,
-      marginHorizontal: 20,
-      alignItems: 'center',
-      justifyContent: 'center',
       padding: 3,
       marginBottom: 10,
+      borderRadius: 10,
     },
     button: {
       borderRadius: 10,
